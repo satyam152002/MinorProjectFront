@@ -2,11 +2,16 @@ import React from 'react'
 import {  useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Login.css'
+import { useSelector, useDispatch } from 'react-redux'
+import { login } from '../../store/auth/authSlice'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
   const[username,setUserName]=useState('')
   const[password,setPassword]=useState('')
   const[error,setError]=useState('')
+  const dispatch=useDispatch()
+  const navigate=useNavigate()
   return (<>
         <div class="login-form">
             <div className='header'>
@@ -44,5 +49,7 @@ export default function Login() {
   async function handleSubmit(e)
   {
     e.preventDefault()
+    dispatch(login())
+    navigate('/profile')
   }
 }

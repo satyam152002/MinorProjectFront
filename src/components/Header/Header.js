@@ -1,5 +1,4 @@
 import './Header.css'
-
 function Header()
 {
     return<>
@@ -7,6 +6,7 @@ function Header()
             Tiffin & Hostel Service
         </header>
     </>
+
 }
 
 export default Header

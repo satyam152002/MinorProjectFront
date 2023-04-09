@@ -5,15 +5,16 @@ import PrivateRoutes from './PrivateRoutes';
 
 import Header from './components/Header/Header'
 import NavBar from './components/NavBar/NavBar'
-
+import { useSelector } from 'react-redux';
 export default function App(props) {
-const user=true
+
+  const user=useSelector(state=>state.auth.user)
   return (
     <BrowserRouter>
         <Header/>
         <NavBar/>
         {
-          user?
+          !user?
           <PublicRoutes/>:
           <PrivateRoutes/>
         }
