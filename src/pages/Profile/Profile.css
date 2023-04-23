@@ -1,0 +1,39 @@
+.profile.card
+{
+    max-width: 1200px;
+    margin: 0px auto;
+    margin-bottom: 30vh;
+}
+.profile.card .card-header
+{
+    font-weight: 700;
+}
+.profile.card .field
+{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    padding: .3rem 1.2rem;
+    border-radius: .3rem;
+    margin: .45rem auto;
+    background: rgb(238, 234, 234);
+    box-shadow: 0 0 2px  black;
+}
+.profile.card .field 
+{
+    font-weight: 500;
+}
+.profile.card .field .value::before
+{
+    content: ":  ";
+    padding-right: 2rem;
+}
+.service.card .card-body ,.detail.card .card-body 
+{
+    padding: .6rem 1rem;   
+}
+.service.card .card-body .alert
+{
+    padding: .5rem 1rem;
+    margin: .25rem 0rem;
+}
+

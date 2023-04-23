@@ -5,7 +5,7 @@ import './Login.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { login } from '../../store/auth/authSlice'
 import { useNavigate } from 'react-router-dom'
-
+import {apiLogin} from './../../http/serverAPI'
 export default function Login() {
   const[username,setUserName]=useState('')
   const[password,setPassword]=useState('')
@@ -49,7 +49,25 @@ export default function Login() {
   async function handleSubmit(e)
   {
     e.preventDefault()
-    dispatch(login())
-    navigate('/profile')
+    setError("")
+    apiLogin({
+        username:username,
+        password:password
+    }).then(res=>{
+        console.log(res.data)
+        dispatch(login(res.data))
+        navigate('/profile')
+    }).catch(error=>{
+        if(error.response)
+        {
+            if(error.response.status===400)
+                setError(error.response.data)
+            else if(error.response.status===500)
+            {
+                setError("Internal Server Error")
+            }
+
+        }
+    })
   }
 }

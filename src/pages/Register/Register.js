@@ -1,6 +1,7 @@
 // import { Link } from "react-router-dom"
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { apiRegister } from '../../http/serverAPI'
 import './Register.css'
 
 function Register(props)
@@ -54,6 +55,24 @@ function Register(props)
     function handleSubmbit(e)
     {
         e.preventDefault()
+        apiRegister({
+            firstname:firstname,
+            lastname:lastname,
+            username:username,
+            email:email,
+            password:password
+        }).then(res=>{
+            setSuccess(res.data)
+        }).catch(e=>{
+            if(e.response.status===400)
+            {
+                setError(e.response.data)
+            }
+            else if(e.response.status===500)
+            {
+                setError('Internal Server Error')
+            }
+        })
     }
 }
 
