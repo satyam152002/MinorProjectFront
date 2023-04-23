@@ -1,13 +1,14 @@
 import {  AccountCircle,  AddCircle,   HomeWork ,Restaurant} from "@mui/icons-material"
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import "./NavBar.css"
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { useState } from "react"
 
 
 function NavBar()
 {
     const user=useSelector(state=>state.auth.user)
-    const navigate=useNavigate()
+    const [visible,setVisible]=useState(false)
     return<>
     <nav className=" text-white">
         <Link  to={'/'}>
@@ -18,14 +19,24 @@ function NavBar()
             <Restaurant/>
             <span>Tiffin</span>
         </Link>
-        <Link>
+        <Link onClick={()=>setVisible(v=>!v)} 
+            style={{'position':'relative'}}>
             <AddCircle/>
             <span >Create</span>
+            {
+            visible&&(
+            <div className=" service-menu ">
+                <Link to={'/tiffin/create'}>Tiffin</Link>
+                <Link to={'/hostel/create'}>Hostel</Link>
+            </div>
+            )
+        }
         </Link>
         <Link to={user?'/profile':'/login'}>
             <AccountCircle/>
             <span>Profile</span>
         </Link>
+        
     </nav>
     </>
 }

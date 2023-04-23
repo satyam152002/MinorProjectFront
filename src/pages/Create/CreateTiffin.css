@@ -1,0 +1,27 @@
+.create-tiffin.card
+{
+    font-size: 1rem;
+} 
+.create-tiffin.card .field 
+{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    justify-content: center;
+    align-items: center;
+}
+.create-tiffin.card .field  span
+{
+    font-size: 1.2rem;
+}
+.create-tiffin.card form button[type="submit"]
+{
+    width: 100%;
+    margin: .2rem .5rem;
+}
+.create-tiffin.card .field-error
+{
+    color: red;
+    font-size: .8rem;
+    margin-bottom: .2rem;
+    padding-left: 18%;
+}

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {BrowserRouter} from 'react-router-dom'
 import PublicRoutes from './PublicRoutes';
 import PrivateRoutes from './PrivateRoutes';

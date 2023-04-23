@@ -13,6 +13,8 @@ headers:{
 export const apiLogin = (data) => axiosInstance.post('/auth/login',data);
 export const apiLogout = () => axiosInstance.post('/auth/logout');
 export const apiRegister = (data) => axiosInstance.post('/auth/register',data);
+export const apiCreateTiffin = (data) => axiosInstance.post('/tiffin',data);
+
 
 
 export default axiosInstance;
